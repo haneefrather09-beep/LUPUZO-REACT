@@ -17,14 +17,40 @@ export default function ClientSlideshow() {
     loadSlides();
   }, []);
 
-  const displaySlides = slides.length > 0 ? slides : [{
-    id: "demo",
-    name: "John Doe",
-    role: "CEO, TechCorp (Demo)",
-    text: "Lupuzo provided an absolutely stunning service. The results exceeded all my expectations. Highly recommended!",
-    mediaType: "image",
-    media: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=600"
-  }];
+  const displaySlides = slides.length > 0 ? slides : [
+    {
+      id: "s1",
+      name: "Omar Al-Faruq",
+      role: "CEO, Riyadh Innovates",
+      text: "Lupuzo completely redefined our branding and mobile app. The UI is sleek, the performance is flawless, and the AI integration pushed our user retention up by 400%.",
+      mediaType: "image",
+      media: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: "s2",
+      name: "Fatima Zahra",
+      role: "Marketing Director, Luxe Arabia",
+      text: "The 3D animations and the overall website aesthetic completely wowed our clients. What impressed me most was their dedication to high-level security.",
+      mediaType: "image",
+      media: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: "s3",
+      name: "James Mitchell",
+      role: "CEO, FinTech Global",
+      text: "We hired Lupuzo to develop a smart AI chatbot for our customer service. It now handles 80% of our daily queries automatically. It is a masterpiece of engineering.",
+      mediaType: "image",
+      media: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: "s4",
+      name: "Aisha Noor",
+      role: "Creative Lead, Echo Studios",
+      text: "Working with Lupuzo was the best decision for our digital transition. Their premium design approach gave us an enterprise-grade platform on a startup budget.",
+      mediaType: "image",
+      media: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800"
+    }
+  ];
 
   const nextSlide = () => {
     setDirection(1);
