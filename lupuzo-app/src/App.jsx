@@ -16,6 +16,7 @@ import p4 from './assets/p4.png';
 import p5 from './assets/p5.png';
 import p6 from './assets/p6.png';
 import './App.css';
+import ClientSlideshow from './ClientSlideshow';
 
 /* ─── DATA ─── */
 const services = [
@@ -115,6 +116,21 @@ export default function App() {
   const [menuOpen, setMenuOpen]   = useState(false);
   const [formStatus, setFormStatus] = useState('idle');
 
+  const scrollToSection = (e, targetId) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    
+    // If external link or generic hash, ignore
+    if (!targetId || targetId === '#') return;
+
+    // Remove hash
+    const id = targetId.startsWith('#') ? targetId.substring(1) : targetId;
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', fn);
@@ -145,7 +161,7 @@ export default function App() {
 
           <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
             {['home','services','about','portfolio','contact'].map(l => (
-              <li key={l}><a href={`#${l}`} className="nav-link" onClick={() => setMenuOpen(false)}>{l[0].toUpperCase()+l.slice(1)}</a></li>
+              <li key={l}><a href={`#${l}`} className="nav-link" onClick={(e) => scrollToSection(e, l)}>{l[0].toUpperCase()+l.slice(1)}</a></li>
             ))}
           </ul>
 
@@ -174,8 +190,8 @@ export default function App() {
               </motion.p>
 
               <motion.div className="hero-actions" variants={fadeUp}>
-                <a href="#services" className="btn-primary"><FaRocket /> See Our Work</a>
-                <a href="#contact"  className="btn-secondary">Start a Project <FaArrowRight /></a>
+                <a href="#services" onClick={(e) => scrollToSection(e, 'services')} className="btn-primary"><FaRocket /> See Our Work</a>
+                <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="btn-secondary">Start a Project <FaArrowRight /></a>
               </motion.div>
 
               <motion.div className="hero-stats-row" variants={fadeUp}>
@@ -340,7 +356,7 @@ export default function App() {
                 ))}
               </div>
               <div style={{marginTop:'2.5rem',display:'flex',gap:'1rem',flexWrap:'wrap'}}>
-                <a href="#contact" className="btn-primary">Work With Us <FaArrowRight /></a>
+                <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="btn-primary">Work With Us <FaArrowRight /></a>
                 <a href="https://wa.me/917006505391" target="_blank" rel="noreferrer" className="btn-secondary"><FaWhatsapp /> WhatsApp Us</a>
               </div>
             </motion.div>
@@ -382,6 +398,9 @@ export default function App() {
         </div>
       </section>
 
+      {/* ══════ CLIENT SLIDESHOW (DYNAMIC) ══════ */}
+      <ClientSlideshow />
+
       {/* ══════ TESTIMONIALS ══════ */}
       <section className="section testimonials-section">
         <div className="container">
@@ -412,7 +431,7 @@ export default function App() {
             <h2 className="section-title">Let's build something<br /><span className="text-gradient">extraordinary together.</span></h2>
             <p className="section-desc" style={{marginBottom:'2.5rem'}}>Join 150+ businesses that trusted Lupuzo to craft their digital future.</p>
             <div className="cta-actions">
-              <a href="#contact" className="btn-primary" style={{fontSize:'1rem',padding:'1rem 2.5rem'}}>Start Your Project <FaArrowRight /></a>
+              <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="btn-primary" style={{fontSize:'1rem',padding:'1rem 2.5rem'}}>Start Your Project <FaArrowRight /></a>
               <a href="https://wa.me/917006505391" target="_blank" rel="noreferrer" className="btn-secondary" style={{fontSize:'1rem',padding:'1rem 2.5rem'}}><FaWhatsapp /> Chat on WhatsApp</a>
             </div>
             <div className="cta-trusted">
@@ -505,13 +524,13 @@ export default function App() {
             <div>
               <h4 className="footer-col-title">Services</h4>
               <ul className="footer-links">
-                {['Web Development','Mobile Apps','App Reskin & Setup','AI Agents','Social Marketing','Video Editing'].map(s => <li key={s}><a href="#services" className="footer-link">{s}</a></li>)}
+                {['Web Development','Mobile Apps','App Reskin & Setup','AI Agents','Social Marketing','Video Editing'].map(s => <li key={s}><a href="#services" onClick={(e) => scrollToSection(e, 'services')} className="footer-link">{s}</a></li>)}
               </ul>
             </div>
             <div>
               <h4 className="footer-col-title">Company</h4>
               <ul className="footer-links">
-                {['About Us','Our Work','Testimonials','Saudi Arabia Office','Kashmir Office','Contact'].map(s => <li key={s}><a href="#about" className="footer-link">{s}</a></li>)}
+                {['About Us','Our Work','Testimonials','Saudi Arabia Office','Kashmir Office','Contact'].map(s => <li key={s}><a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="footer-link">{s}</a></li>)}
               </ul>
             </div>
             <div>

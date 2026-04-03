@@ -1,0 +1,208 @@
+.slideshow-section {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.4) 0%, transparent 70%);
+}
+
+.slideshow-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  min-height: 400px;
+}
+
+.slide-track {
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  border-radius: 20px;
+  padding: 1rem;
+  transform-style: preserve-3d;
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+@media(min-width: 768px) {
+  .slide-content {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.slide-media-container {
+  width: 100%;
+  min-height: 250px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+@media(min-width: 768px) {
+  .slide-media-container {
+    width: 50%;
+    min-height: 400px;
+  }
+}
+
+.slide-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Ensure controls show up for videos on hover, or always */
+video.slide-media {
+  object-fit: contain;
+  background: #000;
+}
+
+.slide-media-placeholder {
+  color: #64748b;
+  font-family: inherit;
+}
+
+.slide-text-container {
+  width: 100%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+@media(min-width: 768px) {
+  .slide-text-container {
+    width: 50%;
+  }
+}
+
+.quote-icon {
+  font-size: 3rem;
+  color: rgba(6, 182, 212, 0.15);
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 0;
+}
+
+.slide-testimonial {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #f8fafc;
+  margin-bottom: 2rem;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-author {
+  position: relative;
+  z-index: 1;
+  border-left: 3px solid #06b6d4;
+  padding-left: 1rem;
+}
+
+.author-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.author-role {
+  font-size: 0.9rem;
+  color: #38bdf8;
+  font-weight: 500;
+}
+
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.slider-nav:hover {
+  background: rgba(6, 182, 212, 0.8);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-nav.prev {
+  left: -20px;
+}
+
+.slider-nav.next {
+  right: -20px;
+}
+
+@media(max-width: 768px) {
+  .slider-nav.prev {
+    left: 0px;
+  }
+
+  .slider-nav.next {
+    right: 0px;
+  }
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.slider-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.slider-dots .dot.active {
+  background: #06b6d4;
+  transform: scale(1.3);
+}
+
+
+
+
+
+
+
+/**/
+http: //localhost:5173/LUPUZO-REACT/
